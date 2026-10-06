@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jonh Paul Villamora — Social Media Manager & Content Creator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#12151B;
+    --bg-alt:#1B1F29;
+    --bg-card:#1F2430;
+    --text:#F3F1EA;
+    --text-dim:#9CA6B4;
+    --accent:#F0A83C;
+    --accent-2:#3FC7A3;
+    --line: rgba(243,241,234,0.10);
+    box-sizing:border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: light){
+    :root:not([data-theme="dark"]){
+      --bg:#12151B; --bg-alt:#1B1F29; --bg-card:#1F2430; --text:#F3F1EA; --text-dim:#9CA6B4;
+    }
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth; scroll-padding-top: calc(72px + env(safe-area-inset-top,0px));}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.6;
+  }
+  h1,h2,h3{
+    font-family:'Sora',system-ui,sans-serif;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  a{color:inherit;}
+  img{max-width:100%;}
+  .wrap{max-width:1040px; margin:0 auto; padding:0 28px;}
+
+  /* NAV */
+  header.nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(18,21,27,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+  .nav-inner{
+    max-width:1040px; margin:0 auto; padding:16px 28px;
+    display:flex; align-items:center; justify-content:space-between;
+    gap:16px;
+  }
+  .nav-name{font-family:'Sora'; font-weight:700; font-size:1rem;}
+  .nav-links{display:flex; gap:22px; font-size:0.92rem; color:var(--text-dim);}
+  .nav-links a{text-decoration:none; transition:color .15s;}
+  .nav-links a:hover{color:var(--text);}
+  .nav-cta{
+    background:var(--accent); color:#1A140A; font-weight:600; font-size:0.88rem;
+    padding:9px 16px; border-radius:8px; text-decoration:none; white-space:nowrap;
+  }
+  @media (max-width:640px){ .nav-links{display:none;} }
+
+  /* HERO */
+  .hero{padding:76px 0 56px;}
+  .kicker{
+    display:inline-flex; align-items:center; gap:8px;
+    color:var(--accent-2); font-size:0.92rem; font-weight:500;
+    margin-bottom:22px;
+  }
+  .kicker::before{
+    content:""; width:7px; height:7px; border-radius:50%;
+    background:var(--accent-2); display:inline-block;
+  }
+  .hero h1{
+    font-size:clamp(2.1rem, 5vw, 3.4rem);
+    font-weight:700;
+    max-width:16ch;
+    color:var(--text);
+  }
+  .hero-sub{
+    color:var(--text-dim);
+    font-size:1.1rem;
+    max-width:56ch;
+    margin-top:20px;
+  }
+  .roles{
+    display:flex; flex-wrap:wrap; gap:10px;
+    margin-top:26px;
+  }
+  .role-tag{
+    border:1px solid var(--line);
+    color:var(--text-dim);
+    font-size:0.85rem;
+    padding:7px 14px;
+    border-radius:100px;
+  }
+  .stats{
+    display:grid; grid-template-columns:repeat(3,1fr);
+    gap:20px; margin-top:48px;
+    border-top:1px solid var(--line);
+    padding-top:32px;
+  }
+  .stat-num{
+    font-family:'Sora'; font-weight:700;
+    font-size:clamp(1.6rem,3.4vw,2.1rem);
+    color:var(--accent);
+  }
+  .stat-label{color:var(--text-dim); font-size:0.9rem; margin-top:4px;}
+  @media (max-width:640px){ .stats{grid-template-columns:1fr; gap:24px;} }
+
+  /* SECTION SHELL */
+  section{padding:64px 0;}
+  .section-head{margin-bottom:36px; max-width:60ch;}
+  .section-kicker{color:var(--accent); font-size:0.88rem; font-weight:600; margin-bottom:10px;}
+  .section-head h2{font-size:clamp(1.5rem,3vw,2rem); font-weight:700;}
+  .divider{border-top:1px solid var(--line);}
+
+  /* ABOUT */
+  .about-grid{display:grid; grid-template-columns:1.5fr 1fr; gap:48px;}
+  .about-grid p{color:var(--text-dim); font-size:1.02rem;}
+  .about-grid p + p{margin-top:16px;}
+  .facts{
+    background:var(--bg-alt); border:1px solid var(--line);
+    border-radius:14px; padding:24px;
+  }
+  .facts dt{color:var(--text-dim); font-size:0.82rem; margin-top:16px;}
+  .facts dt:first-child{margin-top:0;}
+  .facts dd{margin:2px 0 0; font-weight:500;}
+  @media (max-width:760px){ .about-grid{grid-template-columns:1fr;} }
+
+  /* SKILLS */
+  .skill-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:1px;
+    background:var(--line); border:1px solid var(--line); border-radius:14px;
+    overflow:hidden;
+  }
+  .skill-card{background:var(--bg-alt); padding:26px;}
+  .skill-card h3{font-size:1.05rem; font-weight:600; margin-bottom:10px;}
+  .skill-card p{color:var(--text-dim); font-size:0.95rem; margin:0 0 14px;}
+  .tool-list{display:flex; flex-wrap:wrap; gap:8px;}
+  .tool-list span{
+    font-size:0.78rem; color:var(--text-dim);
+    border:1px solid var(--line); border-radius:6px; padding:4px 9px;
+  }
+  @media (max-width:640px){ .skill-grid{grid-template-columns:1fr;} }
+
+  /* EXPERIENCE TIMELINE */
+  .timeline{border-left:2px solid var(--line); margin-left:6px;}
+  .tl-item{position:relative; padding:0 0 40px 32px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{
+    content:""; position:absolute; left:-7px; top:4px;
+    width:12px; height:12px; border-radius:50%;
+    background:var(--bg); border:2px solid var(--accent);
+  }
+  .tl-date{color:var(--accent); font-size:0.84rem; font-weight:600; margin-bottom:6px;}
+  .tl-role{font-family:'Sora'; font-weight:600; font-size:1.08rem;}
+  .tl-org{color:var(--text-dim); font-size:0.92rem; margin-bottom:10px;}
+  .tl-item ul{margin:0; padding-left:18px; color:var(--text-dim); font-size:0.95rem;}
+  .tl-item li + li{margin-top:6px;}
+
+  /* EDUCATION / CERTS */
+  .cred-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
+  .cred-card{
+    background:var(--bg-alt); border:1px solid var(--line); border-radius:14px; padding:24px;
+  }
+  .cred-card h3{font-size:1rem; font-weight:600; margin-bottom:6px;}
+  .cred-card p{color:var(--text-dim); font-size:0.92rem; margin:0;}
+  .badge-row{display:flex; flex-wrap:wrap; gap:8px; margin-top:14px;}
+  .badge{
+    font-size:0.76rem; color:var(--accent-2); border:1px solid rgba(63,199,163,0.35);
+    border-radius:6px; padding:4px 9px;
+  }
+  @media (max-width:640px){ .cred-grid{grid-template-columns:1fr;} }
+
+  /* REMOTE READINESS */
+  .ready-row{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+    background:var(--line); border:1px solid var(--line); border-radius:14px; overflow:hidden;
+  }
+  .ready-item{background:var(--bg-alt); padding:22px 18px;}
+  .ready-item h4{font-size:0.86rem; color:var(--text-dim); font-weight:500; margin-bottom:6px;}
+  .ready-item p{margin:0; font-weight:600; font-size:0.95rem;}
+  @media (max-width:760px){ .ready-row{grid-template-columns:1fr 1fr;} }
+  @media (max-width:420px){ .ready-row{grid-template-columns:1fr;} }
+
+  /* CONTACT */
+  .contact-card{
+    background:linear-gradient(160deg, var(--bg-card), var(--bg-alt));
+    border:1px solid var(--line); border-radius:20px;
+    padding:48px 40px; text-align:center;
+  }
+  .contact-card h2{font-size:clamp(1.5rem,3.4vw,2.1rem); max-width:22ch; margin:0 auto 14px;}
+  .contact-card p{color:var(--text-dim); max-width:48ch; margin:0 auto 28px;}
+  .contact-links{display:flex; flex-wrap:wrap; justify-content:center; gap:14px;}
+  .contact-links a{
+    text-decoration:none; font-size:0.92rem;
+    border:1px solid var(--line); border-radius:100px; padding:10px 20px;
+    color:var(--text);
+  }
+  .contact-links a.primary{background:var(--accent); color:#1A140A; border-color:var(--accent); font-weight:600;}
+
+  footer{
+    text-align:center; color:var(--text-dim); font-size:0.82rem;
+    padding:32px 0 48px;
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="nav-name">Jonh Paul Villamora</div>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="nav-cta" href="mailto:jonhpaul.villamora24@gmail.com">Hire me</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <div class="kicker">Iligan City, Philippines — Available for remote, full-time work</div>
+    <h1>Content, community, and calendars — handled with care.</h1>
+    <p class="hero-sub">I'm a Social Media Manager and Content Creator with a background in graphic design, video editing, and customer support. I help small teams and founders stay visible online and organized behind the scenes.</p>
+    <div class="roles">
+      <span class="role-tag">Social Media Management</span>
+      <span class="role-tag">Graphic Design</span>
+      <span class="role-tag">Video Editing</span>
+      <span class="role-tag">Customer Support</span>
+      <span class="role-tag">Calendar &amp; Email Management</span>
+    </div>
+    <div class="stats">
+      <div>
+        <div class="stat-num">6+ yrs</div>
+        <div class="stat-label">Content, design &amp; multimedia experience</div>
+      </div>
+      <div>
+        <div class="stat-num">100–500</div>
+        <div class="stat-label">Daily customer chats handled</div>
+      </div>
+      <div>
+        <div class="stat-num">1–2 min</div>
+        <div class="stat-label">Average chat response time</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="about">
+    <div class="section-head">
+      <div class="section-kicker">About</div>
+      <h2>A content person who's also good at the boring, necessary stuff.</h2>
+    </div>
+    <div class="about-grid">
+      <div>
+        <p>I spent six years directing multimedia for Ilaw Shared Community, an NGO running youth and health advocacy campaigns — planning content, designing graphics, editing video, and coordinating a small creative team from the ground up. That experience taught me how to keep a content calendar moving and a message consistent, even with limited resources.</p>
+        <p>Since September 2024, I've supported a US-based agency as a customer support VA, handling 100 to 500 chats a day across Facebook and Meta Business Suite. It's sharpened my speed, accuracy, and ability to prioritize — skills that carry over directly into community management and inbox/calendar support for a busy founder or team.</p>
+        <p>I also lean on AI tools — ChatGPT, Claude AI, and Gemini — to move faster on research, planning, and first drafts, without losing the human judgment that makes content actually land.</p>
+      </div>
+      <dl class="facts">
+        <dt>Languages</dt>
+        <dd>English (fluent), Filipino (native), Cebuano</dd>
+        <dt>Education</dt>
+        <dd>BA Filipino Literature, MSU–IIT, 2026 — Magna Cum Laude</dd>
+        <dt>Certification</dt>
+        <dd>Social Media Management for Youth Organizations — MSU-IIT NMPC, 2024</dd>
+        <dt>Availability</dt>
+        <dd>Full-time, flexible schedule</dd>
+      </dl>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="skills">
+    <div class="section-head">
+      <div class="section-kicker">Skills</div>
+      <h2>What I bring to a team.</h2>
+    </div>
+    <div class="skill-grid">
+      <div class="skill-card">
+        <h3>Content &amp; Design</h3>
+        <p>Social graphics, infographics, and campaign materials that translate a brand idea into a finished asset.</p>
+        <div class="tool-list">
+          <span>Canva</span><span>Photoshop</span><span>Infographics</span><span>Print &amp; brochure design</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Video Editing</h3>
+        <p>Short-form and long-form edits for social and advocacy content, from cuts and pacing to motion graphics.</p>
+        <div class="tool-list">
+          <span>Premiere Pro</span><span>After Effects</span><span>CapCut</span><span>DaVinci Resolve</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Social &amp; Community Management</h3>
+        <p>Day-to-day page admin, DM handling, and engagement — built on 100+ daily client-facing interactions.</p>
+        <div class="tool-list">
+          <span>Meta Business Suite</span><span>Facebook Marketing</span><span>Social Engagement</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Admin &amp; AI-Assisted Workflow</h3>
+        <p>Calendar and email management, task tracking, and AI-assisted research to keep things moving.</p>
+        <div class="tool-list">
+          <span>Google Workspace</span><span>Trello</span><span>Airtable</span><span>ChatGPT</span><span>Claude AI</span><span>Gemini</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="experience">
+    <div class="section-head">
+      <div class="section-kicker">Experience</div>
+      <h2>Where I've worked.</h2>
+    </div>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-date">Sep 2024 — Present</div>
+        <div class="tl-role">Customer Support Virtual Assistant</div>
+        <div class="tl-org">Growth OF · US-based agency</div>
+        <ul>
+          <li>Deliver timely, professional responses across 100–500 customer chats daily, averaging a 1–2 minute response time.</li>
+          <li>Handle DMs and support inquiries across Facebook and Meta Business Suite with quality control across 100+ daily interactions.</li>
+          <li>Contribute chat activity insights in team meetings that have informed policy and process updates.</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">Sep 2025 — Nov 2025</div>
+        <div class="tl-role">Radio DJ Intern</div>
+        <div class="tl-org">FriendsRadio</div>
+        <ul>
+          <li>Wrote and delivered on-air news segments, applying journalistic principles to research and fact-checking.</li>
+          <li>Conducted guest interviews in both Filipino and English to engage a diverse listener base.</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">Sep 2025 — Dec 2025</div>
+        <div class="tl-role">Intern, Department of Filipino at Panitikan</div>
+        <div class="tl-org">MSU – Iligan Institute of Technology</div>
+        <ul>
+          <li>Taught ecocriticism and environmental values to undergraduate sections averaging 40 students.</li>
+          <li>Developed quizzes, exams, and assignments across a full semester curriculum.</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">2019 — 2025</div>
+        <div class="tl-role">Agency Head for Multimedia</div>
+        <div class="tl-org">Ilaw Shared Community (NGO)</div>
+        <ul>
+          <li>Directed multimedia operations for six years — content creation and visual communication for community health and youth advocacy initiatives.</li>
+          <li>Applied graphic design, video editing, and content planning (Photoshop, Premiere Pro, After Effects, Canva) to support outreach goals.</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">Jun 2022 — Oct 2022</div>
+        <div class="tl-role">English as a Second Language (ESL) Teacher</div>
+        <div class="tl-org">Native Camp</div>
+        <ul>
+          <li>Taught English and grammar to an average of 10 students a day with customized lesson plans.</li>
+          <li>Managed classroom behavior and built strong relationships with students and parents through consistent communication.</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">Sep 2021 — Apr 2022</div>
+        <div class="tl-role">Graphic Designer Virtual Assistant</div>
+        <div class="tl-org">Amazon (Jewelry Company Client)</div>
+        <ul>
+          <li>Designed print materials, brochures, banners, and signage for client marketing campaigns.</li>
+          <li>Created social media graphics that increased engagement and online visibility for the client's brand.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section>
+    <div class="section-head">
+      <div class="section-kicker">Remote-ready</div>
+      <h2>Set up to work without interruptions.</h2>
+    </div>
+    <div class="ready-row">
+      <div class="ready-item">
+        <h4>Internet</h4>
+        <p>Globe Fibr 100 Mbps + café backup</p>
+      </div>
+      <div class="ready-item">
+        <h4>Power</h4>
+        <p>Generator backup on-site</p>
+      </div>
+      <div class="ready-item">
+        <h4>Equipment</h4>
+        <p>MacBook Air M1, dual monitors</p>
+      </div>
+      <div class="ready-item">
+        <h4>Workspace</h4>
+        <p>Dedicated quiet room</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="contact">
+    <div class="contact-card">
+      <h2>Let's work together.</h2>
+      <p>Open to full-time roles in social media management, content creation, or VA support — with room to help out on admin, too.</p>
+      <div class="contact-links">
+        <a class="primary" href="mailto:jonhpaul.villamora24@gmail.com">jonhpaul.villamora24@gmail.com</a>
+        <a href="tel:+639362495461">+63 936 249 5461</a>
+        <a href="https://www.linkedin.com/in/jonh-paul-villamora-b07904414/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>Jonh Paul U. Villamora · Iligan City, Philippines</footer>
+
+</body>
+</html>
